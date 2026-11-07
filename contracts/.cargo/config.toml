@@ -1,0 +1,15 @@
+# Use the GNU toolchain for host builds (build scripts, proc-macros).
+# This avoids needing MSVC link.exe which is not installed.
+# The WASM target itself does not use a system linker.
+
+[build]
+rustflags = []
+
+# Force Cargo to use the GNU toolchain for host compilation (build scripts)
+[target.x86_64-pc-windows-msvc]
+linker = "C:\\msys64\\mingw64\\bin\\gcc.exe"
+ar = "C:\\msys64\\mingw64\\bin\\ar.exe"
+
+[target.x86_64-pc-windows-gnu]
+linker = "C:\\msys64\\mingw64\\bin\\gcc.exe"
+ar = "C:\\msys64\\mingw64\\bin\\ar.exe"

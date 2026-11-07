@@ -1,0 +1,19 @@
+[workspace]
+resolver = "2"
+members = ["field", "field_factory", "yield"]
+
+[workspace.dependencies]
+soroban-sdk = { version = "22.0.0", default-features = true }
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+panic = "abort"
+codegen-units = 1
+
+[profile.release.package."*"]
+codegen-units = 1
+opt-level = "z"
+strip = "symbols"
